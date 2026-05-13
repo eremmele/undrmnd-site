@@ -17,14 +17,6 @@ The Swift app lives in the main repository:
 
 If you are looking for the source code, app development, issues, or technical contribution workflow, start there.
 
-## This repository contains
-
-- the landing page
-- lightweight project documentation
-- GitHub Pages site assets
-- public-facing copy
-- design and navigation for the web companion
-
 ## Contributing
 
 Contributions are encouraged. For app features, Swift code, or implementation issues, please use the main app repository.
