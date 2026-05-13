@@ -365,7 +365,7 @@
 
 
   let audioCtx = null, brownGain = null, brownNode = null;
-  let currentTrack = "brown"; // 'brown' | 'horizons'
+  let currentTrack = "horizons"; // 'brown' | 'horizons'
   let muted = false;
   let started = false;
 
