@@ -1,21 +1,26 @@
 /* undrmnd site interactions */
 
+
 (() => {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
   /* ---------- Header scroll + dark-context detection ---------- */
   const header = document.getElementById("site-header");
   const darkSections = document.querySelectorAll("section.dark, section.hero");
+
 
   let lastScrollY = window.scrollY;
   let scrollAccum = 0;
   const HIDE_THRESHOLD = 24;   // px of continuous downward scroll before hiding
   const SHOW_THRESHOLD = 8;    // px of upward scroll before showing
 
+
   const updateHeaderBg = () => {
     const y = window.scrollY;
     if (y > 12) header.classList.add("scrolled");
     else header.classList.remove("scrolled");
+
 
     // Does header overlap a dark section
     const headerBottom = header.getBoundingClientRect().bottom + 1;
@@ -26,6 +31,7 @@
     });
     header.classList.toggle("on-dark", onDark);
     document.body.classList.toggle("is-dark-context", onDark);
+
 
     // Direction-based show/hide nav + always show near top of page
     const delta = y - lastScrollY;
@@ -47,6 +53,7 @@
   window.addEventListener("resize", updateHeaderBg);
   updateHeaderBg();
 
+
   /* ---------- Reveal on scrolllllll ---------- */
   const revealEls = document.querySelectorAll(".reveal, .reveal-mask");
   const io = new IntersectionObserver((entries) => {
@@ -59,6 +66,7 @@
   }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
   revealEls.forEach((el) => io.observe(el));
 
+
   // Stagger hero mask reveals on load (deleted i think)
   window.addEventListener("load", () => {
     document.querySelectorAll(".hero .reveal-mask").forEach((el, i) => {
@@ -69,12 +77,14 @@
     });
   });
 
+
   /* ---------- Hero ambient dot field for FoW ---------- */
   const heroCanvas = document.getElementById("hero-fog");
   if (heroCanvas && !prefersReduced) {
     const ctx = heroCanvas.getContext("2d");
     let w, h, dpr;
     let dots = [];
+
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -99,6 +109,7 @@
     resize();
     window.addEventListener("resize", resize);
 
+
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = "#e9e2d1";
@@ -119,6 +130,7 @@
     draw();
   }
 
+
   /* ---------- How it works / FoW map ---------- */
   const mapCanvas = document.getElementById("map");
   const mapWrap = document.getElementById("map-wrap");
@@ -127,6 +139,7 @@
     let w, h, dpr, nodes = [];
     let mouse = { x: -9999, y: -9999, active: false };
     let scrollProgress = 0;
+
 
     const STRATA_LABELS = [
       "Lichen recolonisation", "Tide pools", "Folk indicators of air quality",
@@ -139,11 +152,13 @@
       "Backyard astronomy", "Rooftop lichens", "Field hedgerows",
     ];
 
+
     const seedRandom = (seed) => {
       let s = seed;
       return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
     };
     const rand = seedRandom(7);
+
 
     const buildNodes = () => {
       nodes = [];
@@ -178,6 +193,7 @@
       }
     };
 
+
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = mapCanvas.getBoundingClientRect();
@@ -189,6 +205,7 @@
     };
     resize();
     window.addEventListener("resize", resize);
+
 
     mapCanvas.addEventListener("mousemove", (e) => {
       const rect = mapCanvas.getBoundingClientRect();
@@ -205,6 +222,7 @@
       mouse.active = true;
     }, { passive: true });
 
+
     const onScroll2 = () => {
       const rect = mapWrap.getBoundingClientRect();
       const vh = window.innerHeight;
@@ -216,11 +234,14 @@
     window.addEventListener("scroll", onScroll2, { passive: true });
     onScroll2();
 
+
     let driftT = 0;
     const REVEAL_RADIUS = 170;
 
+
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
+
 
       ctx.save();
       ctx.strokeStyle = "rgba(233, 226, 209, 0.06)";
@@ -230,12 +251,14 @@
       for (let y = 0; y < h; y += gridStep) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
       ctx.restore();
 
+
       driftT += 0.0035;
       const driftX = w * (0.5 + Math.cos(driftT) * 0.22);
       const driftY = h * (0.5 + Math.sin(driftT * 0.7) * 0.18);
       const cx = mouse.active ? mouse.x : driftX;
       const cy = mouse.active ? mouse.y : driftY;
       const baseRadius = REVEAL_RADIUS + scrollProgress * 120;
+
 
       ctx.save();
       ctx.strokeStyle = "rgba(233, 226, 209, 0.20)";
@@ -259,6 +282,7 @@
       ctx.globalAlpha = 1;
       ctx.restore();
 
+
       ctx.font = '11px "MD UI", system-ui, sans-serif';
       ctx.textBaseline = "middle";
       for (const n of nodes) {
@@ -266,6 +290,7 @@
         const t = Math.max(0, 1 - dist / baseRadius);
         const baseAlpha = n.ghost ? 0.18 : 0.34;
         const alpha = baseAlpha + t * (1 - baseAlpha);
+
 
         if (t > 0.5 && !n.ghost) {
           ctx.beginPath();
@@ -275,10 +300,12 @@
           ctx.stroke();
         }
 
+
         ctx.beginPath();
         ctx.fillStyle = `rgba(233, 226, 209, ${alpha})`;
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
+
 
         if (t > 0.55 && !n.ghost) {
           const labelAlpha = (t - 0.55) / 0.45;
@@ -287,6 +314,7 @@
         }
       }
 
+
       const grad = ctx.createRadialGradient(cx, cy, baseRadius * 0.2, cx, cy, baseRadius * 1.4);
       grad.addColorStop(0, "rgba(22, 20, 15, 0)");
       grad.addColorStop(0.6, "rgba(22, 20, 15, 0.55)");
@@ -294,10 +322,12 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
+
       requestAnimationFrame(draw);
     };
     draw();
   }
+
 
   /* ---------- Strata stacked cards ---------- */
   const stack = document.getElementById("strata-stack");
@@ -305,6 +335,7 @@
     const tabs = stack.querySelectorAll(".strata-tab");
     const cards = stack.querySelectorAll(".strata-card");
     let active = 0;
+
 
     const set = (i) => {
       if (i === active) return;
@@ -317,11 +348,13 @@
       stack.dataset.active = String(i);
     };
 
+
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => set(i));
       t.addEventListener("mouseenter", () => set(i));
     });
   }
+
 
   /* ---------- Ambient sound toggle (sourced from Perplexity/Eleven Labs, licensed) ---------- */
   const dock = document.getElementById("sound-dock");
@@ -330,12 +363,15 @@
   const trackLabel = document.getElementById("sd-track-label");
   const horizons = document.getElementById("audio-horizons");
 
+
   let audioCtx = null, brownGain = null, brownNode = null;
   let currentTrack = "brown"; // 'brown' | 'horizons'
   let muted = false;
   let started = false;
 
+
   const TRACK_LABELS = { brown: "Brown", horizons: "Horizons" };
+
 
   const ensureBrown = () => {
     if (audioCtx) return;
@@ -354,15 +390,19 @@
     brownNode.buffer = noiseBuffer;
     brownNode.loop = true;
 
+
     const lp = audioCtx.createBiquadFilter();
     lp.type = "lowpass"; lp.frequency.value = 600; lp.Q.value = 0.5;
+
 
     brownGain = audioCtx.createGain();
     brownGain.gain.value = 0;
 
+
     brownNode.connect(lp).connect(brownGain).connect(audioCtx.destination);
     brownNode.start();
   };
+
 
   const fadeBrown = (target, ms = 600) => {
     if (!audioCtx) return;
@@ -371,6 +411,7 @@
     brownGain.gain.setValueAtTime(brownGain.gain.value, t);
     brownGain.gain.linearRampToValueAtTime(target, t + ms / 1000);
   };
+
 
   const fadeHorizons = (targetVol, ms = 800) => {
     if (!horizons) return;
@@ -391,48 +432,54 @@
     requestAnimationFrame(step);
   };
 
+
   const apply = () => {
     const wantBrown = !muted && currentTrack === "brown";
     const wantHor   = !muted && currentTrack === "horizons";
-    fadeBrown(wantBrown ? 0.06 : 0);
+    fadeBrown(wantBrown ? 0.18 : 0);
     fadeHorizons(wantHor ? 0.55 : 0);
     muteBtn?.setAttribute("aria-pressed", muted ? "true" : "false");
     muteBtn?.setAttribute("aria-label", muted ? "Un-mute ambient" : "Mute ambient");
     if (trackLabel) trackLabel.textContent = TRACK_LABELS[currentTrack];
+    dock?.setAttribute("data-state", muted ? "muted" : "playing");
   };
 
-  const startAudio = () => {
+
+  const startAudio = async () => {
     if (started) return;
     started = true;
     ensureBrown();
-    audioCtx?.resume();
+    if (audioCtx && audioCtx.state === "suspended") {
+      try { await audioCtx.resume(); } catch {}
+    }
     apply();
   };
 
-  // Auto-start on first user gesture (for browser autoplay policies)
-  const gestureEvents = ["pointerdown", "keydown", "touchstart", "wheel", "scroll"];
+
+  // Auto-start on first user gesture (for browser autoplay policies).
+  // Only "activating" gestures count in modern browsers — scroll and wheel do NOT
+  // count, so they're omitted here.
+  const gestureEvents = ["pointerdown", "click", "keydown", "touchstart"];
   const onFirstGesture = () => {
     startAudio();
     gestureEvents.forEach((ev) => window.removeEventListener(ev, onFirstGesture, true));
   };
   gestureEvents.forEach((ev) => window.addEventListener(ev, onFirstGesture, { capture: true, once: true }));
 
-  // Try to start immediately too — some browsers allow it
-  setTimeout(() => {
-    try { startAudio(); } catch {}
-  }, 350);
 
-  muteBtn?.addEventListener("click", () => {
+  muteBtn?.addEventListener("click", async () => {
+    await startAudio();
     muted = !muted;
-    if (!started) startAudio();
     apply();
   });
 
-  trackBtn?.addEventListener("click", () => {
-    if (!started) startAudio();
+
+  trackBtn?.addEventListener("click", async () => {
+    await startAudio();
     currentTrack = currentTrack === "brown" ? "horizons" : "brown";
     apply();
   });
+
 
   /* ---------- Smooth scrolling b/w anchors ---------- */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
