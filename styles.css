@@ -1134,3 +1134,17 @@ body.is-dark-context .sd-btn:hover { background: rgba(255,255,255,0.06); border-
   .sd-mute[aria-pressed="false"] .pix-on rect:last-of-type { animation: none; }
   .strata-card { transition: none; }
 }
+
+/* Grow Repo on Hero */
+.build-link--primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  will-change: transform;
+}
+
+.build-link--primary:hover,
+.build-link--primary:focus-visible {
+  transform: scale(1.03);
+}
