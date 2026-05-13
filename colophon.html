@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta author="Erica Remmele" />
+  <title>undrmnd « a public learning commons</title>
+  <meta name="description" content="Knowledge should be free and accessible. Undrmnd is a counter-algorithmic tool to build a common commons. Fork it, add to it, rewrite it." />
+  <meta property="og:title" content="undrmnd « a public learning commons" />
+  <meta property="og:description" content="Knowledge should be free and accessible. A counter-algorithmic tool to build a common commons. Built in Swift." />
+  <meta property="og:type" content="website" />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/MDLorien-Book.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/MDLorien-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/MDUI-Regular.woff2" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#top" class="logo" aria-label="undrmnd home">undrmnd</a>
+      <div class="nav-links" role="list">
+        <a href="#thesis">Thesis</a>
+        <a href="#how">How it works</a>
+        <a href="#community">Community</a>
+        <a href="#build" class="gh">Build with us <span class="nav-arrow">↗</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- //////// Hero //////// -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colophon « undrmnd</title>
+  <meta name="description" content="Credits, typefaces, references, and acknowledgements for the undrmnd project." />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<!-- ===== Hero ===== -->
+<section class="col-hero">
+  <div class="container">
+    <span class="label">Colophon</span>
+    <h1>Credit <em>where</em> due.</h1>
+    <p class="lede">
+      This site is small, but the work behind it is not. Thank you to everyone who made it possible.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Typefaces ===== -->
+<section class="col-section">
+  <div class="container col-grid">
+    <div>
+      <div class="col-eyebrow">Credit 01</div>
+      <h2>Typefaces <em>set</em> the temperature.</h2>
+    </div>
+    <div class="col-body">
+      <p>
+        undrmnd is set in two typefaces from <a href="https://mass-driver.com/" target="_blank" rel="noopener">Mass-Driver</a>, a small independent type foundry. They were chosen for their warmth, their e-ink/public-library quality, and their willingness to be both readable and a little strange.
+      </p>
+      <ul class="specimen-list">
+        <li class="specimen">
+          <span class="spec-name">MD Lorien</span>
+          <span class="spec-meta">
+            Serif. Used for headlines, body copy, and the contemplative voice of the site. Designed by <a href="https://mass-driver.com/typefaces/md-lorien" target="_blank" rel="noopener">Roman Gornitsky / Mass-Driver</a>. <br/>Weights used: Book, Book Italic, Regular, Italic, Semibold.
+          </span>
+        </li>
+        <li class="specimen sans">
+          <span class="spec-name">MD UI</span>
+          <span class="spec-meta">
+            Sans-serif. Used for labels, navigation, terminal text, and small-format metadata. Designed by <a href="https://mass-driver.com/typefaces/md-ui" target="_blank" rel="noopener">Mass-Driver</a>. <br/>Weights used: Regular, Medium.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sound ===== -->
+<section class="col-section">
+  <div class="container col-grid">
+    <div>
+      <div class="col-eyebrow">Credit 02</div>
+      <h2>Two <em>zen</em> sounds.</h2>
+    </div>
+    <div class="col-body">
+      <p>
+        The ambient sound dock in the corner of the site offers two tracks, each meant as a small companion to reading, not as background music.
+      </p>
+      <ul class="ref-list">
+        <li>
+          <span class="ref-num">01</span>
+          <span>
+            <span class="ref-title"><em>Brown</em> &mdash; lowpass-filtered Brownian noise.</span>
+            <span class="ref-meta">
+              Generated procedurally in the browser using the Web Audio API. White noise is integrated through a feedback equation, then shaped by a 600&nbsp;Hz lowpass filter to produce that warm, rumbly character. No file is loaded; the sound is composed live, in your tab <i>(thanks, Perplexity)</i>.
+            </span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">02</span>
+          <span>
+            <span class="ref-title"><em>Horizons</em> &mdash; a slow, generative ambient piece.</span>
+            <span class="ref-meta">
+              Composed with <a href="https://elevenlabs.io/" target="_blank" rel="noopener">ElevenLabs</a>&apos; generative music tools. Licensed for use on this site. Plays as a seamless loop when selected from the dock.
+            </span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">03</span>
+          <span>
+            <span class="ref-title">Dock design inspired by <a href="https://smallbits.design/" target="_blank" rel="noopener">@smallbits</a>.</span>
+            <span class="ref-meta">
+              The little pixel-art player in the corner of the site is a tribute to the playful, low-fi UI work coming out of the smallbits community. Implemented from scratch in SVG; spiritual debt acknowledged.
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== References ===== -->
+<section class="col-section">
+  <div class="container col-grid">
+    <div>
+      <div class="col-eyebrow">Credit 03</div>
+      <h2>Things <em>read</em> along the way.</h2>
+    </div>
+    <div class="col-body">
+      <p>
+        undrmnd is partly an argument against the algorithmic feed, partly a love letter to the public library, and partly an experiment in slow, communal learning. These are some of the voices that shaped that argument. The full reading list is maintained as a living notebook.
+      </p>
+      <ul class="ref-list">
+        <li>
+          <span class="ref-num">01</span>
+          <span>
+            <span class="ref-title">Jenny Odell &mdash; <em>How to Do Nothing: Resisting the Attention Economy.</em></span>
+            <span class="ref-meta">Melville House, 2019. On bioregionalism, attention as a public good, and the case for stepping out of the feed. <a href="https://www.jennyodell.com/how-to-do-nothing.html" target="_blank" rel="noopener">jennyodell.com</a></span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">02</span>
+          <span>
+            <span class="ref-title">Cory Doctorow &mdash; <em>The &ldquo;Enshittification&rdquo; of TikTok</em> and subsequent essays.</span>
+            <span class="ref-meta">Wired / Pluralistic, 2023&ndash;present. On the lifecycle decay of platforms and the case for user-owned infrastructure. <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys" target="_blank" rel="noopener">pluralistic.net</a></span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">03</span>
+          <span>
+            <span class="ref-title">Tristan Harris &amp; the Center for Humane Technology &mdash; talks and writing on attention design.</span>
+            <span class="ref-meta">The framing of &ldquo;digital anhedonia&rdquo; in the site copy owes a debt here. <a href="https://www.humanetech.com/" target="_blank" rel="noopener">humanetech.com</a></span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">04</span>
+          <span>
+            <span class="ref-title">Robin Sloan &mdash; <em>Notes on the home-cooked app</em> and the &ldquo;web of small computers.&rdquo;</span>
+            <span class="ref-meta">On software made for one community, at one scale, with care. <a href="https://www.robinsloan.com/notes/home-cooked-app/" target="_blank" rel="noopener">robinsloan.com</a></span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">05</span>
+          <span>
+            <span class="ref-title">Maggie Appleton &mdash; <em>Digital Gardens</em> and writing on tools for thought.</span>
+            <span class="ref-meta">On personal knowledge as a slow, evergreen practice rather than a stream. <a href="https://maggieappleton.com/garden-history" target="_blank" rel="noopener">maggieappleton.com</a></span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">06</span>
+          <span>
+            <span class="ref-title">Ivan Illich &mdash; <em>Deschooling Society</em> and <em>Tools for Conviviality.</em></span>
+            <span class="ref-meta">Harper &amp; Row, 1971&ndash;73. On learning webs, public infrastructure for curiosity, and convivial tools that don&apos;t consume the user. The deep, quiet ancestor of this whole project.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">07</span>
+          <span>
+            <span class="ref-title">Elinor Ostrom &mdash; <em>Governing the Commons.</em></span>
+            <span class="ref-meta">Cambridge University Press, 1990. The structural reading list for anything calling itself a &ldquo;commons.&rdquo;</span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">08</span>
+          <span>
+            <span class="ref-title">Living research notebook.</span>
+            <span class="ref-meta">An ongoing, source-by-source notebook for the thesis, maintained in <a href="https://notebooklm.google.com/notebook/d97d8672-4751-4eb2-9917-8f7582bcd6df" target="_blank" rel="noopener">NotebookLM</a>. Access is currently private; a public reading list will eventually live alongside the open-source app.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Tools ===== -->
+<section class="col-section">
+  <div class="container col-grid">
+    <div>
+      <div class="col-eyebrow">Credit 04</div>
+      <h2>Made with <em>plain</em> tools.</h2>
+    </div>
+    <div class="col-body">
+      <p>
+        The site is built as a small static page (well, this makes two). A few files, a folder of fonts, one audio file, deployed to GitHub Pages at <a href="https://www.undrmnd.com" rel="noopener">undrmnd.com</a>.
+      </p>
+      <ul class="ref-list">
+        <li>
+          <span class="ref-num">&middot;</span>
+          <span>
+            <span class="ref-title">HTML, CSS, vanilla JavaScript.</span>
+            <span class="ref-meta">No framework. The fog-of-war map and ambient dot field are hand-written canvas. The brown noise is hand-written Web Audio. Everything renders in a single round-trip.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">&middot;</span>
+          <span>
+            <span class="ref-title">Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages.</a></span>
+            <span class="ref-meta">Source lives at <a href="https://github.com/eremmele/undrmnd-site" target="_blank" rel="noopener">github.com/eremmele/undrmnd-site</a>. The companion iOS app is being developed openly at <a href="https://github.com/eremmele/undrmnd" target="_blank" rel="noopener">github.com/eremmele/undrmnd</a>.</span>
+          </span>
+        </li>
+        <li>
+          <span class="ref-num">&middot;</span>
+          <!--<span>
+            <span class="ref-title">No analytics, no cookies, no tracking pixels.</span>
+            <span class="ref-meta">If we ever add a counter, it will be a public one.</span>
+          </span>-->
+          <span>
+            <span class="ref-title">Everything is free.</span>
+            <span class="ref-meta">For you, at least.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Acknowledgements ===== -->
+<section class="col-section">
+  <div class="container col-grid">
+    <div>
+      <div class="col-eyebrow">Credit 05</div>
+      <h2>With <em>thanks</em>.</h2>
+    </div>
+    <div class="col-body">
+      <p>
+        undrmnd began as a capstone project with Harvard's <a href="https://extension.harvard.edu/academics/programs/digital-media-design-graduate-program/" target="_blank" rel="noopener">Master of Liberal Arts in Digital Media Design</a> program at the <a href="https://extension.harvard.edu/" target="_blank" rel="noopener">(HES)</a>, developed through <a href="https://coursebrowser.dce.harvard.edu/course/capstone-design-studio/" target="_blank" rel="noopener">DGMD&nbsp;E-599: Capstone Design Studio</a>.
+      </p>
+      <p>
+        Particular thanks to the faculty and peers of DGMD&nbsp;E-599 &mdash; whose critique, patience, and counter-questions made the project sharper, slower, and more honest than it would have been alone. The work is better because of y'all.
+      </p>
+      <ul class="people-grid">
+        <li>Harvard Extension School<span class="role">Institutional home</span></li>
+        <li>DGMD E-599 faculty<span class="role">Capstone Design Studio</span></li>
+        <li>DGMD E-599 cohort<span class="role">Peer reviewers &amp; critics</span></li>
+        <li>The wider HES Digital Media Design community<span class="role">For years of company</span></li>
+        <li>The Mass-Driver foundry<span class="role">For the typefaces</span></li>
+        <li>The @smallbits community<span class="role">For the dock&apos;s spirit</span></li>
+        <li>Mentors, readers, and early testers<span class="role">Named privately, thanked publicly</span></li>
+        <li>Everyone who has ever loaned me a library card<span class="role">Including the New York Public Library</span></li>
+      </ul>
+      <p class="muted-graf" style="margin-top:28px;">
+        If you contributed and don&apos;t see your name, the omission is mine and not on purpose. <a href="mailto:err698@g.harvard.edu">Write to me</a> and I&apos;ll fix it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Closing ===== -->
+<section class="col-closing">
+  <div class="container">
+    <p>
+      &ldquo;The library is what you make of it.&rdquo;
+    </p>
+    <p class="sig">
+      Authored and built by <strong>Erica Remmele</strong>
+    </p>
+    <a class="back-link" href="index.html">Back to undrmnd</a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-row">
+      <span>undrmnd &nbsp;/&nbsp; A commons for trading knowledge openly. &nbsp;/&nbsp; Open source. Always in development.</span>
+      <span>
+        <a href="https://github.com/eremmele/undrmnd-site" target="_blank" rel="noopener" style="margin-right:18px;">GitHub ↗</a>
+        <a href="mailto:err698@g.harvard.edu" style="margin-right:18px;">Contact ↗</a>
+        <a href="colophon.html" aria-current="page">Colophon</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Lightweight header scroll behavior, mirrored from main site so colophon
+  // matches the show/hide on scroll. Self-contained so the page works without script.js.
+  (function () {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+    let lastY = window.scrollY;
+    let accum = 0;
+    const HIDE = 24, SHOW = 8;
+    const onScroll = () => {
+      const y = window.scrollY;
+      header.classList.toggle("scrolled", y > 12);
+      const delta = y - lastY;
+      if (y < 80) { header.classList.remove("is-hidden"); accum = 0; }
+      else if (delta > 0) { accum = Math.max(0, accum) + delta; if (accum > HIDE) header.classList.add("is-hidden"); }
+      else if (delta < 0) { accum = Math.min(0, accum) + delta; if (accum < -SHOW) header.classList.remove("is-hidden"); }
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
