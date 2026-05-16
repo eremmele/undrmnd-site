@@ -1039,7 +1039,7 @@ section.dark .section-body strong { color: var(--night-text); }
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 18px;
-  padding-right: clamp(0px, 10vw, 240px);
+  padding-right: clamp(0px, 12vw, 240px);
 }
 .footer-row.colophon {
   padding-right: 0;
